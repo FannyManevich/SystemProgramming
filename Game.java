@@ -36,7 +36,7 @@ public input getTurn()
     input userInput = input.O;
     return userInput;
 }
-
+//Printing the game board
 public void printBoard(char[][] gameBoard){
     for(int i = 0;i <= 2;i ++)
     {
@@ -49,6 +49,7 @@ public void printBoard(char[][] gameBoard){
     }
 }
 
+//returns coordinates of empty cells
 public Coordinates[] getFreeCells(char[][] gameBoard)
 {
     int c = 0;
