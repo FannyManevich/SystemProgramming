@@ -1,15 +1,11 @@
-public abstract class Player{
 /* 
  * Fany Manevich 206116725
- * 
+ * Cindy Zilberman - 316268150
 */
-Player(input player)
-{
+public abstract class Player{
 
+public Player(input playerT){
+ this.playerT = playerT;
 }
-
-
-
-
 
 }

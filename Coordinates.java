@@ -1,16 +1,17 @@
+/* 
+ * Fany Manevich 206116725
+ * Cindy Zilberman - 316268150
+*/
 public class Coordinates {
 
     public int X;
     public int Y;
-
 
  public Coordinates(int x,int y)
     {
         this.X = x;
         this.Y = y;
     }
-
-
 
     public int getX() {
         return X;
