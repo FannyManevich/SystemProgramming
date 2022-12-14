@@ -21,12 +21,12 @@ public class SelfPlayer implements Runnable{
                 //Puts current thread to sleep
                 Thread.currentThread();
                 Thread.sleep(500);
-                if(game.getTurn() == mySymbol ){
-                    if(!game.CheckFull() || nizahon){
+                if(game.getTurn() == mySymbol ){//להוסיף למטה אופציה של ניצחון
+                    if(!game.CheckFull()){
                         //Will get the coordinates of the free cells
                         coordinates = game.getFreeCells();
                         i = random.nextInt(9);
-                        //Gets the coordinates of the free cell choosen randomly
+                        //Gets the coordinates of the free cell chosen randomly
                         x = coordinates[i].getX();
                         y = coordinates[i].getY();
                         game.setCell(x, y, mySymbol);
@@ -40,7 +40,7 @@ public class SelfPlayer implements Runnable{
                 }
                 
             } catch (InterruptedException e) {
-               
+               return;
             }
     }
 }

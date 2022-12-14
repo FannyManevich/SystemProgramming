@@ -81,4 +81,66 @@ public boolean CheckFull(){
 public void setCell(int x, int y, input playerT){
     gameBoard[x][y] = playerT;
 }
+
+//Cheking if there is a winning row
+public boolean winRow(int x,int y){
+    char compare = gameBoard[x][y];
+
+    for (int j = 0; j < 3; j ++) {
+        if(compare != gameBoard[x][j] ){
+            return false;
+        }   
+    }
+    return true;
+}
+//Cheking if there is a winning colomn
+public boolean winCol(int x,int y){
+    char compare = gameBoard[x][y];
+
+    for (int i = 0; i < 3; i ++) {
+        if(compare != gameBoard[i][y] ){
+            return false;
+        }   
+    }
+    return true;
+}
+//Cheking if there is a winning strike on first daigonal
+public boolean winDig1(int x,int y){
+    char compare = gameBoard[x][y];
+
+    for (int i = 0; i < 3; i ++) {
+        if(compare != gameBoard[i][i]){
+            return false;
+        }
+    }
+    return true;
+}
+//Cheking if there is a winning strike on second daigonal
+public boolean winDig2(int x,int y){
+    char compare = gameBoard[x][y];
+
+    if((compare == gameBoard[0][2]) && (compare == gameBoard[1][1])&& (compare == gameBoard[2][0])){
+         return true;
+    }
+
+    return false;
+}
+//Checking if the new cell makes a strike
+public boolean Win(int x,int y){
+    boolean flag;
+    //Checks cells that sit on the first daigonal
+    if(x == y){
+        if(winRow(x,y) && winCol(x,y) && winDig1(x,y)) 
+            return true;
+        //If its the middle cell check also the second daigonal
+        if((x == 1 && y == 1) && (winDig2(x,y)))
+            return true;
+    }else if((x == 0 || y == 0) && (x == 2 || y == 2)){//Checks cells that sit on the second daigonal
+        if(winRow(x,y) && winCol(x,y) && winDig2(x,y))
+            return true;
+    }else if(winRow(x,y) && winCol(x,y))//Checks cells that dont sit on the daigonals
+            return true;
+            
+    return false;
+    }
 }
